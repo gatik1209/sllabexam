@@ -1,0 +1,68 @@
+<div id='pic'>
+<div>
+    <div>
+        <form>
+            <div class="input">
+                <div class="Exercise">
+                    <p id="col">Enter Excercise Name :</p>
+                    <input [(ngModel)]="Name" placeholder="Enter Exercise name here Type none if you havent worked out yet" name="Name">
+                </div>
+                <div class="Date">
+                    <p id="col">Enter Date:</p>
+                    <input [(ngModel)]="e_date" placeholder="Add Date here" name="e_date">
+                </div>
+                <div class="Description">
+                    <p id="col">Enter Diet Details :</p>
+                    <input [(ngModel)]="Description" placeholder="Add What you had for your mele here" name="Description">
+                </div>
+                <div class="Duration">
+                    <p id="col">Enter Calories :</p>
+                    <input [(ngModel)]="e_dur" placeholder="Add the calories consumed and dont cheat" name="e_dur">
+                </div>
+                <div class="Repetition">
+                    <p id="col">Enter Your weight :</p>
+                    <input [(ngModel)]="e_reps" placeholder="Add your weight in kgs here" name="e_reps">
+                </div>
+                <div class="Category">
+                    <p id="col">Enter Height :</p>
+                    <input [(ngModel)]="e_cat" placeholder="Enter your height in cms here" name="e_cat">
+                </div>
+                <button type="submit" *ngIf="Name !== ''" (click)="addItem($Exercise)">Add The Details!</button>
+            </div>
+        </form>
+    </div>
+
+    <ul>
+        <li *ngFor="let e of eList; let i=index">
+            <mat-card>
+                <app-list [title]='e.Name'></app-list>
+                <mat-card-subtitle><strong>Details</strong></mat-card-subtitle>
+                <mat-card-content>
+                    <table class="e-table">
+                        <thead>
+                            <tr>
+                                <th>S.no.</th>
+                                <th>Exercise</th>
+                                <th>Date</th>
+                                <th>Meal</th>
+                                <th>Calories</th>
+                                <th>Weight</th>
+                                <th>Height</th>
+                            </tr>
+                            <tr>
+                                <td>{{i+1}}</td>
+                                <td>{{e.Name}}</td>
+                                <td>{{e.e_date}}</td>
+                                <td>{{e.Description}}</td>
+                                <td>{{e.e_dur}}</td>
+                                <td>{{e.e_reps}}</td>
+                                <td>{{e.e_cat}}</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </li>
+    </ul>
+</div> 
+</div>
